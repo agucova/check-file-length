@@ -1,0 +1,6 @@
+-   id: check-file-length
+    name: Check file length
+    description: Check the number of lines in a python file
+    entry: check_long_files.bash
+    language: script
+    types: [file, python]
