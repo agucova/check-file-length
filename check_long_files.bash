@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
-length="$(wc -l < "$1" | xargs)"
-if [[ "$length" -gt "400" ]] ; then
-	echo "$i: $length"
-	exit 1
-fi
+returnCode=0
+for i in "$@"; do
+	 length="$(wc -l < "$i" | xargs)"
+	 if [[ "$length" -gt "400" ]] ; then
+	 	echo "$i: $length"
+	 	returnCode=1
+	 fi
+done
+
+exit $returnCode
