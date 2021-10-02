@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
 returnCode=0
-for i in "$@"; do
-	 length="$(wc -l < "$i" | xargs)"
-	 if [[ "$length" -gt "400" ]] ; then
-	 	echo "$i: $length"
+for i in $(find . -name "*.py" -type f); do
+	 lines="$(wc -l < "$i" | xargs)"
+     maxlength="$(wc -L < "$i" | xargs)"
+	 if [[ "$lines" -gt "400" || "$maxlength" -gt "100" ]] ; then
+	 	echo "$i: $lines lines, $maxlength max_length"
 	 	returnCode=1
 	 fi
 done
