@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 returnCode=0
 for i in $(find . -name "*.py" -type f); do
 	 lines="$(wc -l < "$i" | xargs)"
